@@ -50,16 +50,16 @@
                                         <td>' . $value["descripcion"] . '</td>
                                         <td>';
 
-                      if ($value["estado"] == "Activa") {
-                        echo '<button class="btn btn-success btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="activa"">Activa</button>';
+                      if ($value["estado"] == "activa") {
+                        echo '<button class="btn btn-success btn-xs btaActivarSede" id="'.$value["id_sede"].'" estadoSede="activa"">Activa</button>';
                       } else {
-                        echo '<button class="btn btn-danger btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="activa"">Inactiva</button>';
+                        echo '<button class="btn btn-danger btn-xs btaActivarSede" id="'.$value["id_sede"].'" estadoSede="activa"">Inactiva</button>';
                       }
 
                       echo '</td>
                       <td>
                       <div class="btn-group">
-                      <button class="btn btn-default btn-xs btnditarSede" id="'.$value["id"].'" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>';
+                      <button class="btn btn-default btn-xs btnditarSede" id="'.$value["id_sede"].'" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>';
                                 
                       echo '</div>      
                           </td>
