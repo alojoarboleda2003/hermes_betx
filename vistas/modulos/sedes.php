@@ -9,7 +9,7 @@
             <h1>Sedes</h1>
           </div>
           <div class="col-sm-6 text-right">
-            <button class="btn btn-info" data-toggle="modal" data-target="#archivoModal">Agregar</button>
+            <button class="btn btn-info" data-toggle="modal" data-target="#archivoModal">Agregar Sede</button>
           </div>
         </div>
       </div>
@@ -48,18 +48,19 @@
                                         <td>' . $value["nombre"] . '</td>
                                         <td>' . $value["direccion"] . '</td>
                                         <td>' . $value["descripcion"] . '</td>
+                                        
                                         <td>';
 
-                      if ($value["estado"] == "Activa") {
-                        echo '<button class="btn btn-success btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="activa"">Activa</button>';
+                      if ($value["estado"] == "activo") {
+                        echo '<button class="btn btn-success btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="inactivo"">Activa</button>';
                       } else {
-                        echo '<button class="btn btn-danger btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="activa"">Inactiva</button>';
+                        echo '<button class="btn btn-danger btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="activo"">Inactiva</button>';
                       }
 
                       echo '</td>
                       <td>
                       <div class="btn-group">
-                      <button class="btn btn-default btn-xs btnditarSede" id="'.$value["id"].'" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>';
+                      <button class="btn btn-default btn-xs btnEditarSede" idSede="'.$value["id"].'" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>';
                                 
                       echo '</div>      
                           </td>
@@ -84,31 +85,43 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="archivoModalLabel">Abrir Archivo</h5>
+          <h5 class="modal-title" id="archivoModalLabel">Agregar sede</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method="post">
             <div class="form-group">
               <label for="nombreSede">Nombre</label>
-              <input type="text" class="form-control" id="nombreSede" placeholder="Ingrese el nombre de la sede">
+              <input type="text" class="form-control" id="nombreSede" name="nombreSede" placeholder="Ingrese el nombre de la sede">
             </div>
             <div class="form-group">
               <label for="direccionSede">Dirección</label>
-              <input type="text" class="form-control" id="direccionSede" placeholder="Ingrese la dirección de la sede">
+              <input type="text" class="form-control" id="direccionSede" name="direccionSede"  placeholder="Ingrese la dirección de la sede">
             </div>
             <div class="form-group">
               <label for="descripcionSede">Descripción</label>
-              <textarea class="form-control" id="descripcionSede" rows="3"
+              <textarea class="form-control" id="descripcionSede" name="descripcionSede" rows="3"
                 placeholder="Ingrese una descripción"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
+              </div>
+
+            
+              
+          
+          </div>
+          <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          
+          <?php
+
+            $crearsede = new ControladorSedes();
+            $crearsede->ctrCrearSede();
+
+          ?>
+          </form>
+
         </div>
       </div>
     </div>
@@ -126,7 +139,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method="post">
             <div class="form-group">
               <label for="editNombreSede">Nombre</label>
               <input type="text" class="form-control" id="editNombreSede" placeholder="Ingrese el nombre de la sede">
@@ -141,12 +154,15 @@
               <textarea class="form-control" id="editDescripcionSede" rows="3"
                 placeholder="Ingrese una descripción"></textarea>
             </div>
-          </form>
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar Cambios</button>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </div>
+
+        
+        </form>
       </div>
     </div>
   </div>
