@@ -15,10 +15,10 @@ $(document).on("click", ".btnEditarSede",function(){
         success : function(respuesta){
             //console.log("respuesta :", respuesta)
 
-            $("nombreEditSede").val(respuesta["nombre"]);
-            $(".direccionEditSede").val(respuesta["direccion"]);
-            $(".descripcionEditSede").val(respuesta["descripcion"]);
-            $(".idEditSede").val(respuesta["id"]);
+            $("#editNombreSede").val(respuesta["nombre"]);
+            $("#editDireccionSede").val(respuesta["direccion"]);
+            $("#editDescripcionSede").val(respuesta["descripcion"]);
+            $("#idEditSede").val(respuesta["id"]);
         }
     })
 })
