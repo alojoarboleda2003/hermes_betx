@@ -51,16 +51,16 @@
                                         
                                         <td>';
 
-                      if ($value["estado"] == "Activa") {
-                        echo '<button class="btn btn-success btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="activa"">Activa</button>';
+                      if ($value["estado"] == "activo") {
+                        echo '<button class="btn btn-success btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="activo"">Activa</button>';
                       } else {
-                        echo '<button class="btn btn-danger btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="activa"">Inactiva</button>';
+                        echo '<button class="btn btn-danger btn-xs btaActivarSede" id="'.$value["id"].'" estadoSede="inactivo"">Inactiva</button>';
                       }
 
                       echo '</td>
                       <td>
                       <div class="btn-group">
-                      <button class="btn btn-default btn-xs btnditarSede" id="'.$value["id"].'" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>';
+                      <button class="btn btn-default btn-xs btnEditarSede" idSede="'.$value["id"].'" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>';
                                 
                       echo '</div>      
                           </td>
@@ -142,16 +142,16 @@
           <form method="post">
             <div class="form-group">
               <label for="editNombreSede">Nombre</label>
-              <input type="text" class="form-control" id="editNombreSede" placeholder="Ingrese el nombre de la sede">
+              <input type="text" class="form-control" id="editNombreSede" name="nombreEditSede" placeholder="Ingrese el nombre de la sede">
             </div>
             <div class="form-group">
               <label for="editDireccionSede">Dirección</label>
-              <input type="text" class="form-control" id="editDireccionSede"
+              <input type="text" class="form-control"  id="editDireccionSede" name="direccionEditSede"
                 placeholder="Ingrese la dirección de la sede">
             </div>
             <div class="form-group">
               <label for="editDescripcionSede">Descripción</label>
-              <textarea class="form-control" id="editDescripcionSede" rows="3"
+              <textarea class="form-control" id="editDescripcionSede" name="descripcionEditSede" rows="3"
                 placeholder="Ingrese una descripción"></textarea>
             </div>
           
@@ -160,6 +160,10 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </div>
+        <?php
+        //$editarSede = new ControladorSedes();
+        
+        ?>
 
         
         </form>

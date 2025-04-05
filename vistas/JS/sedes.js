@@ -13,7 +13,12 @@ $(document).on("click", ".btnEditarSede",function(){
         processData : false,
         dataType : "json",
         success : function(respuesta){
-            console.log("respuesta :", respuesta)
+            //console.log("respuesta :", respuesta)
+
+            $("nombreEditSede").val(respuesta["nombre"]);
+            $(".direccionEditSede").val(respuesta["direccion"]);
+            $(".descripcionEditSede").val(respuesta["descripcion"]);
+            $(".idEditSede").val(respuesta["id"]);
         }
     })
 })
